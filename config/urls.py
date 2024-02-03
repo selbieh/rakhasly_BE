@@ -7,6 +7,7 @@ from drf_yasg import openapi
 from config import settings
 from django.conf.urls.static import static
 from rest_framework.permissions import AllowAny
+from dj_rest_auth.views import PasswordResetView, PasswordResetConfirmView
 
 # from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
@@ -36,9 +37,12 @@ urlpatterns = [
     path('auth/', include('dj_rest_auth.urls')),
     path('auth/registration/', include('dj_rest_auth.registration.urls')),
 
+    # Password Reset URLs
+    path('auth/password/reset/', PasswordResetView.as_view(), name='password_reset'),
+    path('auth/password/reset/confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(),
+         name='password_reset_confirm'),
 
-    # path('api/schema/', SpectacularAPIView.as_view()),
-    # path('api/docs/', SpectacularSwaggerView.as_view()),
+    # path('auth/password/reset/complete/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
     # yasq (swagger)
     path('api/swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
