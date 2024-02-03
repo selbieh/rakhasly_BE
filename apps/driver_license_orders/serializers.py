@@ -1,0 +1,38 @@
+from rest_framework import serializers
+
+
+from apps.driver_license_orders.models import DriverLicenseOrder, Governorate, LicensingUnit
+
+
+class GovernorateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Governorate
+        fields = "__all__"
+
+
+class LicensingUnitReadOnlySerializer(serializers.ModelSerializer):
+    governorate = GovernorateSerializer(read_only=True)
+
+    class Meta:
+        model = LicensingUnit
+        fields = "__all__"
+
+
+class LicensingUnitSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = LicensingUnit
+        fields = "__all__"
+
+class GovernorateReadOnlySerializer(serializers.ModelSerializer):
+    licensing_units = LicensingUnitSerializer(source='governorate', many=True, read_only=True)
+    class Meta:
+        model = Governorate
+        fields = ['id', 'name', 'licensing_units']
+
+class DriverLicenseOrderSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = DriverLicenseOrder
+        fields = "__all__"
