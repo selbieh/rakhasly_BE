@@ -9,6 +9,8 @@ from django.conf.urls.static import static
 from rest_framework.permissions import AllowAny
 from dj_rest_auth.views import PasswordResetView, PasswordResetConfirmView
 
+from config.views import custom_reset_handler_submit, custom_confirm, custom_reset_handler
+
 # from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 # from config.settings import SPECTACULAR_SETTINGS
@@ -30,6 +32,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/registration/account-confirm-email/<str:key>/', custom_confirm),
+
     path('api/v1/', include('apps.driver_license_orders.urls')),
     path('api/v1/', include('apps.car_license_orders.urls')),
     path('api/v1/', include('apps.users.urls')),
@@ -41,9 +45,8 @@ urlpatterns = [
     path('auth/password/reset/', PasswordResetView.as_view(), name='password_reset'),
     path('auth/password/reset/confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(),
          name='password_reset_confirm'),
-
-    # path('auth/password/reset/complete/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
-
+    path('dj-rest-auth/custom_reset_handler_submit/', custom_reset_handler_submit, name='custom_reset_handler_submit'),
+    path('auth/reset/confirm/<str:uid>/<str:token>/', custom_reset_handler, name='password_reset_confirm'),
     # yasq (swagger)
     path('api/swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

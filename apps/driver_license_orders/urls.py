@@ -7,8 +7,8 @@ from apps.driver_license_orders.views import DriverLicenseOrderViewSet
 
 router = DefaultRouter()
 router.register(r'governorates', GovernorateViewSet, basename='governorate')
-router.register(r'licensing_units', LicensingUnitViewSet, basename='licensing_unit')
-router.register(r'driver_license', DriverLicenseOrderViewSet, basename='driver_license')
+router.register(r'licensing-units', LicensingUnitViewSet, basename='licensin-_unit')
+router.register(r'driver-license', DriverLicenseOrderViewSet, basename='driver-license')
 
 
 urlpatterns = [

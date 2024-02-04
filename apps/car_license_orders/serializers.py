@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from apps.car_license_orders.models import CarLicenseOrder
-from apps.driver_license_orders.models import Governorate, LicensingUnit
+from apps.driver_license_orders.models import Governorate, LicensingUnit, OrderStatus
 from apps.ratings.serializers import RatingSerializer
 
 
@@ -33,7 +33,6 @@ class GovernorateReadOnlySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'licensing_units']
 
 class CarLicenseOrderSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = CarLicenseOrder
         fields = "__all__"

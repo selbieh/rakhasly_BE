@@ -5,8 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="194a1f00-d84c-4467-9617-ec8b47367bd1" name="Changes" comment="add email creds">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/rakhasly_BE.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/permoissions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/permissions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/reset_form.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/email_template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reset_password_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/car_license_orders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/car_license_orders/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/car_license_orders/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/car_license_orders/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/car_license_orders/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/car_license_orders/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/driver_license_orders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/driver_license_orders/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/driver_license_orders/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/driver_license_orders/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/driver_license_orders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/driver_license_orders/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/.env" beforeDir="false" afterPath="$PROJECT_DIR$/config/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,15 +67,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;staging&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Desktop/personal-projects/2024/django/rakhasly_shokran/apps&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging staging",
+    "last_opened_file_path": "C:/Users/admin/Desktop/personal-projects/2024/django/rakhasly_shokran",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Desktop\personal-projects\2024\django\rakhasly_shokran\apps" />
@@ -140,5 +169,16 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="add email creds" />
     <option name="LAST_COMMIT_MESSAGE" value="add email creds" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/driver_license_orders/views.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
