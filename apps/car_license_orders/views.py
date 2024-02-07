@@ -9,7 +9,7 @@ from datetime import datetime
 from django.utils import timezone
 
 from apps.car_license_orders.models import CarLicenseOrder
-from apps.car_license_orders.serializers import  CarLicenseOrderSerializer
+from apps.car_license_orders.serializers import CarLicenseOrderSerializer, CarLicenseReadOnlyOrderSerializer
 
 
 class CarLicenseOrderViewSet(viewsets.ModelViewSet):
@@ -18,6 +18,12 @@ class CarLicenseOrderViewSet(viewsets.ModelViewSet):
     serializer_class = CarLicenseOrderSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields= ['status', 'vip_assistance', 'installment', 'is_new_car', 'needs_check']
+
+    def get_serializer_class(self):
+        if self.action in ['create', 'update', 'partial_update']:
+            return CarLicenseOrderSerializer
+        else:
+            return CarLicenseReadOnlyOrderSerializer
 
     def get_queryset(self):
         queryset = super().get_queryset()

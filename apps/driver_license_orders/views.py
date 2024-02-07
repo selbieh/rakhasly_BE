@@ -13,7 +13,7 @@ from django.utils import timezone
 # from drf_standardized_errors import exceptions
 
 from apps.driver_license_orders.serializers import GovernorateSerializer, LicensingUnitSerializer, \
-    GovernorateReadOnlySerializer
+    GovernorateReadOnlySerializer, DriverLicenseReadOnlyOrderSerializer
 
 from apps.driver_license_orders.models import DriverLicenseOrder
 from apps.driver_license_orders.serializers import DriverLicenseOrderSerializer
@@ -63,9 +63,15 @@ from django_filters import rest_framework as rest_filter
 class DriverLicenseOrderViewSet(viewsets.ModelViewSet):
     queryset = DriverLicenseOrder.objects.all()
     permission_classes = [DjangoModelPermissions]
-    serializer_class = DriverLicenseOrderSerializer
+    # serializer_class = DriverLicenseOrderSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields= ['status', 'vip_assistance', 'installment', 'is_new_car', 'needs_check']
+
+    def get_serializer_class(self):
+        if self.action in ['create', 'update', 'partial_update']:
+            return DriverLicenseOrderSerializer
+        else:
+            return DriverLicenseReadOnlyOrderSerializer
 
     def get_queryset(self):
         queryset = super().get_queryset()

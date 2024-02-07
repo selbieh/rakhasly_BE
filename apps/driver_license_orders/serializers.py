@@ -32,6 +32,15 @@ class GovernorateReadOnlySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'licensing_units']
 
 class DriverLicenseOrderSerializer(serializers.ModelSerializer):
+    licensing_units = LicensingUnitSerializer(read_only=True)
+
+    class Meta:
+        model = DriverLicenseOrder
+        fields = "__all__"
+
+
+class DriverLicenseReadOnlyOrderSerializer(serializers.ModelSerializer):
+    licensing_unit = LicensingUnitSerializer(read_only=True)
 
     class Meta:
         model = DriverLicenseOrder

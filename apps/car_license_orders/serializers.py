@@ -36,3 +36,11 @@ class CarLicenseOrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = CarLicenseOrder
         fields = "__all__"
+
+
+class CarLicenseReadOnlyOrderSerializer(serializers.ModelSerializer):
+    licensing_unit = LicensingUnitSerializer(read_only=True)
+
+    class Meta:
+        model = CarLicenseOrder
+        fields = "__all__"
