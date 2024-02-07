@@ -15,7 +15,7 @@ class CarLicenseOrder(AbstractBaseModel):
         (3, '3 Years'),
     ]
 
-    status = models.CharField(max_length=32, choices= OrderStatus.choices, null=True, default=OrderStatus.WAITINGAPPROVAL)
+    status = models.CharField(max_length=32, choices= OrderStatus.choices, null=True, default=OrderStatus.WAITING_APPROVAL)
     needs_check = models.BooleanField(default=False)
     licensing_unit = models.ForeignKey(LicensingUnit, on_delete=models.PROTECT)
     renewal_duration = models.IntegerField(choices=RENEWAL_DURATION_CHOICES)
