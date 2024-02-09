@@ -44,6 +44,7 @@ class DriverLicenseOrder(AbstractBaseModel):
     user = models.ForeignKey(User, related_name='driver_license_user', null=True, on_delete=models.PROTECT)
     rating = models.OneToOneField(Rating, related_name='driver_license_rating', null=True, on_delete=models.PROTECT)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0, null=True, blank=True)
+    notes = models.CharField(max_length=256, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.pk and self.is_new_car and not self.contract_image:

@@ -15,6 +15,7 @@ class CarLicenseOrderSerializer(serializers.ModelSerializer):
 class CarLicenseReadOnlyOrderSerializer(serializers.ModelSerializer):
     licensing_unit = LicensingUnitSerializer(read_only=True)
     user = UserSerializer(read_only=True)
+    rating = RatingSerializer(read_only=True)
 
     class Meta:
         model = CarLicenseOrder

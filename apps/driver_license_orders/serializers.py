@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 
 from apps.driver_license_orders.models import DriverLicenseOrder, Governorate, LicensingUnit
+from apps.ratings.serializers import RatingSerializer
 from apps.users.serializers import UserSerializer
 
 
@@ -43,6 +44,8 @@ class DriverLicenseOrderSerializer(serializers.ModelSerializer):
 class DriverLicenseReadOnlyOrderSerializer(serializers.ModelSerializer):
     licensing_unit = LicensingUnitSerializer(read_only=True)
     user = UserSerializer(read_only=True)
+    rating = RatingSerializer(read_only=True)
+
 
     class Meta:
         model = DriverLicenseOrder
