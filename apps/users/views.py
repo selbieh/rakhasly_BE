@@ -13,3 +13,4 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields= ['name', 'email', 'is_active', 'is_staff']
+    search_fields = ['name', 'email', 'phone']

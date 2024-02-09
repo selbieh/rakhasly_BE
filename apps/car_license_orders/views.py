@@ -18,6 +18,7 @@ class CarLicenseOrderViewSet(viewsets.ModelViewSet):
     serializer_class = CarLicenseOrderSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields= ['status', 'vip_assistance', 'installment', 'is_new_car', 'needs_check']
+    search_fields = ['user__name']
 
     def get_serializer_class(self):
         if self.action in ['create', 'update', 'partial_update']:

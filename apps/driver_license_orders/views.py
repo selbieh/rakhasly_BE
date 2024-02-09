@@ -41,24 +41,6 @@ class GovernorateViewSet(viewsets.ModelViewSet):
 
         return Response(serializer.data)
 
-from django_filters import rest_framework as rest_filter
-
-# class DateRangeFilter(rest_filter.Filter):
-#     def filter(self, qs, value):
-#         if value:
-#             date_field = self.field_name.split('__')[0]
-#             lookup_expr = 'gte' if 'from_date' in self.parent.data else 'lte'
-#             qs = qs.filter(**{f'{date_field}__{lookup_expr}': value})
-#         return qs
-#
-# class DriverLicenseOrderFilter(rest_filter.Filter):
-#     from_date = DateRangeFilter(field_name='visit_date', method='filter')
-#     to_date = DateRangeFilter(field_name='visit_date', method='filter')
-#
-#     class Meta:
-#         model = DriverLicenseOrder
-#         fields = ['status', 'vip_assistance', 'installment', 'is_new_car', 'needs_check', 'from_date', 'to_date']
-
 
 class DriverLicenseOrderViewSet(viewsets.ModelViewSet):
     queryset = DriverLicenseOrder.objects.all()
@@ -66,6 +48,7 @@ class DriverLicenseOrderViewSet(viewsets.ModelViewSet):
     # serializer_class = DriverLicenseOrderSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields= ['status', 'vip_assistance', 'installment', 'is_new_car', 'needs_check']
+    search_fields = ['user__name']
 
     def get_serializer_class(self):
         if self.action in ['create', 'update', 'partial_update']:
