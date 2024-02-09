@@ -18,9 +18,9 @@ from config.views import custom_reset_handler_submit, custom_confirm, custom_res
 # yasq configuration
 schema_view = get_schema_view(
    openapi.Info(
-      title="NOS_backend_service API",
+      title="Rakhasly APIs",
       default_version='1.0.0',
-      description="Documentation of API endpoints of NOS_backend_service",
+      description="Documentation of API endpoints of Rakhasly",
    ),
     url="",
     public=True,
