@@ -5,6 +5,7 @@ from dj_rest_auth.serializers import LoginSerializer
 from rest_framework import serializers
 from rest_framework.views import APIView
 from dj_rest_auth.serializers import UserDetailsSerializer
+from phonenumber_field.serializerfields import PhoneNumberField
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -51,9 +52,10 @@ class CustomUserDetailsSerializer(UserDetailsSerializer):
 
 
 class CustomRegisterSerializer(RegisterSerializer):
-    phone = serializers.CharField(max_length=15, required=True)
-
+    phone = PhoneNumberField(max_length=100, required=True)
+    name=serializers.CharField(max_length=100, required=True)
     def custom_signup(self, request, user):
         print('calllled')
         user.phone = self.validated_data.get('phone')
+        user.name = self.validated_data.get('name')
         user.save()
