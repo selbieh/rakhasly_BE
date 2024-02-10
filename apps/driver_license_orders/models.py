@@ -20,6 +20,7 @@ class OrderStatus(models.TextChoices):
     PENDING = 'PENDING'
     DONE = 'DONE'
     REJECTED = 'REJECTED'
+    CANCELED = 'CANCELED'
 
 class DriverLicenseOrder(AbstractBaseModel):
 
