@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
+from rest_framework import serializers
+from django.db.utils import IntegrityError
 
 
 class User(AbstractUser):
@@ -32,6 +34,14 @@ class User(AbstractUser):
           models.UniqueConstraint(fields=['email'], name='unique_email_user'),
           models.UniqueConstraint(fields=['email', 'phone'], name='unique_email_user_phone'),
          ]
+
+    def save(self, *args, **kwargs):
+        try:
+            super().save(*args, **kwargs)
+        except IntegrityError as e:
+            # Handle the unique constraint violation here
+            # You may want to raise a ValidationError or take some other action
+            raise serializers.ValidationError(detail="user already exist")
 #    indexes = [
 #       models.Index(fields=['email', 'phone'])
 #  ]

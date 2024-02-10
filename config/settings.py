@@ -194,6 +194,7 @@ REST_AUTH = {
     'LOGIN_SERIALIZER': 'apps.users.serializers.CustomLoginSerializer',
     'USER_DETAILS_SERIALIZER': 'apps.users.serializers.CustomUserDetailsSerializer',
     'JWT_SERIALIZER': 'dj_rest_auth.serializers.JWTSerializer',
+    "REGISTER_SERIALIZER":"apps.users.serializers.CustomRegisterSerializer"
 }
 
 SIMPLE_JWT = {
