@@ -9,6 +9,7 @@ from rest_framework import filters
 from datetime import datetime
 from django.utils import timezone
 
+from rest_framework.permissions import IsAuthenticated
 
 # from drf_standardized_errors import exceptions
 
@@ -44,7 +45,7 @@ class GovernorateViewSet(viewsets.ModelViewSet):
 
 class DriverLicenseOrderViewSet(viewsets.ModelViewSet):
     queryset = DriverLicenseOrder.objects.all()
-    permission_classes = [DjangoModelPermissions]
+    permission_classes = [IsAuthenticated]
     # serializer_class = DriverLicenseOrderSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields= ['status', 'vip_assistance', 'installment', 'is_new_car', 'needs_check']

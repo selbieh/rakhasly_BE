@@ -7,6 +7,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from datetime import datetime
 from django.utils import timezone
+from rest_framework.permissions import IsAuthenticated
+
 
 from apps.car_license_orders.models import CarLicenseOrder
 from apps.car_license_orders.serializers import CarLicenseOrderSerializer, CarLicenseReadOnlyOrderSerializer
@@ -14,7 +16,7 @@ from apps.car_license_orders.serializers import CarLicenseOrderSerializer, CarLi
 
 class CarLicenseOrderViewSet(viewsets.ModelViewSet):
     queryset = CarLicenseOrder.objects.all()
-    permission_classes = [DjangoModelPermissions]
+    permission_classes = [IsAuthenticated]
     serializer_class = CarLicenseOrderSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields= ['status', 'vip_assistance', 'installment', 'is_new_car', 'needs_check']
